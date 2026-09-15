@@ -86,7 +86,8 @@ To leave the `>>>` prompt, type `exit()`.
 ## Installing packages
 
 A package is code someone else wrote that you can use, like `requests` (for
-websites) or `pygame` (for games).
+websites) or `pygame` (for games). uv downloads packages from the internet, so
+you need a connection for `uv add`.
 
 | Tutorial says                          | You type                                |
 | -------------------------------------- | --------------------------------------- |
@@ -171,13 +172,17 @@ Some packages are not for importing but are programs you run, like `ruff`
 | `pipx run pycowsay hello`              | `uvx pycowsay hello`            |
 | `pipx install ruff`                    | `uv tool install ruff`          |
 
-`uvx` runs the program once without installing it for good.
+`uvx` runs the program once without installing it for good. Both `uvx` and
+`uv tool install` download the program, so they need internet.
 
 ## Jupyter notebooks
 
 | Tutorial says                          | You type                                  |
 | -------------------------------------- | ----------------------------------------- |
 | `pip install jupyter` then `jupyter lab` | `uv run --with jupyter jupyter lab`     |
+
+`--with jupyter` downloads Jupyter without adding it to your project, so it needs
+internet.
 
 ## Files you will see in a uv project
 

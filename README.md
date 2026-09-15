@@ -11,17 +11,8 @@ You only need one tool: [uv](https://docs.astral.sh/uv/). It installs Python for
 you and manages the virtual environment, so there is nothing else to install
 first.
 
-Install it once:
-
-- **Windows:** `winget install --id=astral-sh.uv`
-- **macOS / Linux:** `curl -LsSf https://astral.sh/uv/install.sh | sh`
-
-Then open a **new** terminal - the installer changes `PATH`, and running
-terminals do not pick that up. Check that it worked:
-
-```
-uv --version
-```
+To install uv, follow
+[Installing uv](python-with-uv.md#installing-uv-once-per-computer) in the guide.
 
 ## Running
 
