@@ -2,6 +2,9 @@
 
 Gauss summation formula - `gauss.py` plus tests.
 
+New to uv, or following a Python tutorial that uses `python` and `pip`? See
+[python-with-uv.md](python-with-uv.md) for the uv equivalent of each command.
+
 ## Setup
 
 You only need one tool: [uv](https://docs.astral.sh/uv/). It installs Python for
