@@ -42,9 +42,4 @@ uv run pytest
 ## Notes
 
 These commands are identical on Windows, macOS and Linux.
-
-Write `uv run gauss.py` rather than `./gauss.py`. The shebang at the top of the
-script is honored on macOS and Linux only; Windows has no shebang support at the
-OS level, so `./gauss.py` there depends on a separate python.org installation
-and would not use this project's virtual environment.
  
