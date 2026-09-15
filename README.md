@@ -1,4 +1,4 @@
-# mathe
+# gauss-sum
 
 A worked example that starts with the formula young Gauss is said to have found
 for 1 + 2 + ... + 100 and turns it into a small, tested Python program.
