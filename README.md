@@ -1,9 +1,16 @@
 # mathe
 
-Gauss summation formula - `gauss.py` plus tests.
+A worked example that starts with the formula young Gauss is said to have found
+for 1 + 2 + ... + 100 and turns it into a small, tested Python program.
 
-New to uv, or following a Python tutorial that uses `python` and `pip`? See
-[python-with-uv.md](python-with-uv.md) for the uv equivalent of each command.
+The formula `n(n+1)/2` adds up 1..n without a loop. `gauss.py` builds on it to
+sum any range, including negative numbers, and to sum only the even or only the
+odd numbers. `test_gauss.py` tests each of these, and the command line too.
+
+The project uses [uv](https://docs.astral.sh/uv/) rather than `python` and
+`pip`. Most Python tutorials use the latter, so
+[python-with-uv.md](python-with-uv.md) shows the uv command for each one you
+will meet.
 
 ## Setup
 
