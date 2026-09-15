@@ -1,0 +1,13 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+
+# Virtual environment (uv recreates it from pyproject.toml + uv.lock)
+.venv/
+
+# Vim swap files
+*.swp

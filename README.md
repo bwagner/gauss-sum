@@ -1,0 +1,49 @@
+# mathe
+
+Gauss summation formula - `gauss.py` plus tests.
+
+## Setup
+
+You only need one tool: [uv](https://docs.astral.sh/uv/). It installs Python for
+you and manages the virtual environment, so there is nothing else to install
+first.
+
+Install it once:
+
+- **Windows:** `winget install --id=astral-sh.uv`
+- **macOS / Linux:** `curl -LsSf https://astral.sh/uv/install.sh | sh`
+
+Then open a **new** terminal - the installer changes `PATH`, and running
+terminals do not pick that up. Check that it worked:
+
+```
+uv --version
+```
+
+## Running
+
+There is no activation step and no `pip install`. The first command you run
+downloads a matching Python, creates `.venv`, and installs the dependencies
+listed in `pyproject.toml`:
+
+```
+uv run gauss.py 10          # sum 1..10
+uv run gauss.py 5 10        # sum 5..10
+uv run gauss.py --help      # usage
+```
+
+## Tests
+
+```
+uv run pytest
+```
+
+## Notes
+
+These commands are identical on Windows, macOS and Linux.
+
+Write `uv run gauss.py` rather than `./gauss.py`. The shebang at the top of the
+script is honored on macOS and Linux only; Windows has no shebang support at the
+OS level, so `./gauss.py` there depends on a separate python.org installation
+and would not use this project's virtual environment.
+ 
