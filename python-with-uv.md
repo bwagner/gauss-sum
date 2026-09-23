@@ -24,19 +24,19 @@ You only do this once, and you need an internet connection for it. You do
 
 **Windows:**
 
-```
+```bash
 winget install --id=astral-sh.uv -e
 ```
 
 If Windows answers that `winget` is not recognized, use this instead:
 
-```
+```bash
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 **macOS / Linux:**
 
-```
+```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
@@ -47,13 +47,13 @@ already open do not notice. A new terminal does.
 
 ### 4. Check that it worked
 
-```
+```bash
 uv --version
 ```
 
 This should print something like `uv 0.9.26`. Then try:
 
-```
+```bash
 uv run python --version
 ```
 
@@ -109,7 +109,7 @@ your project needs.
 
 Tutorials often tell you to do this first:
 
-```
+```bash
 python -m venv .venv
 .venv\Scripts\activate          (Windows)
 source .venv/bin/activate       (macOS / Linux)
@@ -124,7 +124,7 @@ that.
 
 Tutorials usually say "make a folder and create a file". With uv:
 
-```
+```bash
 uv init my_game
 cd my_game
 uv run main.py
@@ -143,7 +143,7 @@ uv run main.py
 Sometimes you only want a single script, not a whole project. uv can write the
 package list into the top of the file itself:
 
-```
+```bash
 uv init --script weather.py
 uv add --script weather.py requests
 uv run weather.py
@@ -168,7 +168,7 @@ press the Windows key, type `cmd`, press Enter.
 
 2. **Find out where uv lives:**
 
-   ```
+   ```bash
    where uv | clip
    ```
 
@@ -181,21 +181,21 @@ press the Windows key, type `cmd`, press Enter.
    second line with yours, keeping the `\"` around it (needed if the path
    contains a space):
 
-   ```
+   ```bash
    reg add HKCU\Software\Classes\.py /ve /d uvScript /f
    reg add HKCU\Software\Classes\uvScript\shell\open\command /ve /d "\"C:\Users\<you>\.local\bin\uv.exe\" run --script \"%1\" %*" /f
    ```
 
 4. **Let Windows find `.py` files by name** (run this only once):
 
-   ```
+   ```bash
    setx PATHEXT "%PATHEXT%;.PY"
    ```
 
 5. **Close Command Prompt and open a new one.** Put `weather.py` into your
    scripts folder, then type:
 
-   ```
+   ```bash
    weather
    ```
 
@@ -208,7 +208,7 @@ Good to know:
   closes when the script ends.
 - To undo step 3:
 
-  ```
+  ```bash
   reg delete HKCU\Software\Classes\.py /f
   reg delete HKCU\Software\Classes\uvScript /f
   ```
