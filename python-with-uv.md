@@ -153,6 +153,66 @@ Open `weather.py` and you will see a `# /// script` block at the top. That block
 is the package list. You can send this one file to a friend with uv, and
 `uv run weather.py` works for them too.
 
+## Running scripts by name (Windows, Command Prompt)
+
+With a one-time setup, you can type just `weather` instead of
+`uv run weather.py`, from any folder. This works in **Command Prompt** only (in
+PowerShell, keep using `uv run`). Type all commands below into Command Prompt:
+press the Windows key, type `cmd`, press Enter.
+
+1. **Make a folder for your scripts and put it on PATH.** Create a folder, for
+   example `C:\Users\<you>\bin`. Press the Windows key, type
+   `environment variables`, open **Edit environment variables for your
+   account**, select `Path`, click **Edit**, then **New**, and paste the
+   folder's path. Click **OK** twice.
+
+2. **Find out where uv lives:**
+
+   ```
+   where uv | clip
+   ```
+
+   This copies uv's path, for example `C:\Users\<you>\.local\bin\uv.exe`, to
+   the clipboard. It includes a line break at the end, so paste it into Notepad
+   rather than straight into Command Prompt, and put the step 3 command
+   together there.
+
+3. **Tell Windows to open `.py` files with uv.** Replace the uv path in the
+   second line with yours, keeping the `\"` around it (needed if the path
+   contains a space):
+
+   ```
+   reg add HKCU\Software\Classes\.py /ve /d uvScript /f
+   reg add HKCU\Software\Classes\uvScript\shell\open\command /ve /d "\"C:\Users\<you>\.local\bin\uv.exe\" run --script \"%1\" %*" /f
+   ```
+
+4. **Let Windows find `.py` files by name** (run this only once):
+
+   ```
+   setx PATHEXT "%PATHEXT%;.PY"
+   ```
+
+5. **Close Command Prompt and open a new one.** Put `weather.py` into your
+   scripts folder, then type:
+
+   ```
+   weather
+   ```
+
+Good to know:
+
+- Each script gets its packages from its own `# /// script` block (see above),
+  not from a project's `pyproject.toml`. Files that belong to a project still
+  run with `uv run` inside that project.
+- Double-clicking a `.py` file in Explorer now runs it too. A window flashes and
+  closes when the script ends.
+- To undo step 3:
+
+  ```
+  reg delete HKCU\Software\Classes\.py /f
+  reg delete HKCU\Software\Classes\uvScript /f
+  ```
+
 ## Different Python versions
 
 | Tutorial says                  | You type                              |
